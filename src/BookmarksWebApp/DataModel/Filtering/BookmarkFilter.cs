@@ -7,7 +7,6 @@ namespace Bookmarks.DataModel.Filtering
 {
     public sealed class BookmarkFilter
     {
-        //private readonly string _filter;
         private readonly Func<Bookmark, bool> _titleFilter;
         private readonly Func<Bookmark,bool> _tagFilter;
 
