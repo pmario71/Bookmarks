@@ -1,0 +1,30 @@
+﻿@using DataModel;
+@using MatBlazor;
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Bookmark.Title</h5>
+        @*@foreach (var tag in Bookmark.Tags)
+        {
+            <button >@tag</button>
+        }*@
+    <MatChipSet>
+        @foreach (var tag in Bookmark.Tags)
+        {
+            <MatChip Label="@tag"></MatChip>
+        }
+
+        @*<MatChip Label="LeadingIcon" LeadingIcon="favorite"></MatChip>
+        <MatChip Label="TrailingIcon" TrailingIcon="favorite"></MatChip>*@
+    </MatChipSet>
+
+        @*<button class="btn btn-primary" @onclick="OnClickCallback">
+            Trigger a Parent component method
+        </button>*@
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Bookmark Bookmark { get; set; }
+}

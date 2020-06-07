@@ -1,0 +1,72 @@
+﻿@page "/bookmarks"
+@inject Bookmarks.Services.BookmarkSvc _svc
+@using System.Text.Json.Serialization
+@using DataModel;
+@using MatBlazor;
+
+<h1>Bookmarks</h1>
+
+@if (_svc.Config == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <MatList>
+        <input @bind-value="_filter" @bind-value:event="oninput" />
+        <MatButton @onclick="OnSearch"><span class="oi oi-question-mark">Search</span></MatButton>
+    </MatList>
+    <div class="mat-layout-grid">
+        <div class="mat-layout-grid-inner">
+            @foreach (var bookmark in FilteredBookmarks)
+            {
+                <MatCard class="mat-layout-grid-cell">
+                    <MatCardContent>
+                        <MatHeadline5>@bookmark.Title</MatHeadline5>
+                        <MatList>
+                            @foreach (var tag in bookmark.Tags)
+                            {
+                                <MatChip Label="@tag"></MatChip>
+                            }
+                        </MatList>
+                    </MatCardContent>
+                </MatCard>
+            }
+        </div>
+    </div>
+}
+@code {
+    //private Configuration config;
+    private string _filter;
+
+    private IEnumerable<Bookmark> FilteredBookmarks {
+        get
+        {
+            return _svc.Config.Bookmarks.Where(bm => FilterOnSearchString(_filter, bm));
+        }
+    }
+
+    private void OnSearch()
+    {
+        this.StateHasChanged();
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        //config = await Http.GetFromJsonAsync<Configuration>("sample-data/bookmarks.json");
+        return _svc.InitializeAsync();
+    }
+
+    private static bool FilterOnSearchString(string filterString, Bookmark bookmark)
+    {
+        if (!string.IsNullOrEmpty(filterString))
+        {
+            return bookmark.Title.Contains(filterString, StringComparison.OrdinalIgnoreCase) ||
+                   bookmark.Tags.Any(tag => tag.Contains(filterString, StringComparison.OrdinalIgnoreCase));
+        }
+        else
+        {
+            return true;
+        }
+    }
+}
