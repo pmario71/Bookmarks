@@ -12,3 +12,9 @@ App hosted as static web site in Azure Blobstorage and bookmarks fed from Azure 
 
 * Use example
   https://github.com/fernandreu/blazor-pages
+
+
+## Libraries used
+
+* https://www.matblazor.com/
+* bootstrap

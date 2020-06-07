@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7B87DFED-AF9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0E01987E-5F8F-4E08-819E-12E1CBE1DAA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookmarksTests", "test\BookmarksTests\BookmarksTests.csproj", "{5CD414F1-F50F-4B3B-992E-7EF6E59A5B45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookmarksTests", "test\BookmarksTests\BookmarksTests.csproj", "{5CD414F1-F50F-4B3B-992E-7EF6E59A5B45}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{4726894D-BFAD-45C6-A247-42B0829A6999}"
 	ProjectSection(SolutionItems) = preProject
@@ -19,6 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{472689
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflows", "Workflows", "{257849BE-2404-4367-A20B-075727246452}"
 	ProjectSection(SolutionItems) = preProject
+		.github\workflows\deploy-gh-pages.yml = .github\workflows\deploy-gh-pages.yml
 		.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
 	EndProjectSection
 EndProject
