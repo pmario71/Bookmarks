@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7B87DFED-AF9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0E01987E-5F8F-4E08-819E-12E1CBE1DAA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookmarksTests", "test\BookmarksTests\BookmarksTests.csproj", "{5CD414F1-F50F-4B3B-992E-7EF6E59A5B45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,12 +21,17 @@ Global
 		{29161E70-7756-4172-B596-A383ADE14A12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29161E70-7756-4172-B596-A383ADE14A12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29161E70-7756-4172-B596-A383ADE14A12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CD414F1-F50F-4B3B-992E-7EF6E59A5B45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CD414F1-F50F-4B3B-992E-7EF6E59A5B45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CD414F1-F50F-4B3B-992E-7EF6E59A5B45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CD414F1-F50F-4B3B-992E-7EF6E59A5B45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{29161E70-7756-4172-B596-A383ADE14A12} = {7B87DFED-AF96-4B9A-AD37-34367066CF37}
+		{5CD414F1-F50F-4B3B-992E-7EF6E59A5B45} = {0E01987E-5F8F-4E08-819E-12E1CBE1DAA8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {04E23A58-7573-4726-908E-0C2ED9AFA7F8}
