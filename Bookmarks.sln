@@ -19,7 +19,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{472689
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflows", "Workflows", "{257849BE-2404-4367-A20B-075727246452}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\deploy-gh-pages.yml = .github\workflows\deploy-gh-pages.yml
 		.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
 	EndProjectSection
 EndProject

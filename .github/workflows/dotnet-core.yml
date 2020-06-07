@@ -28,7 +28,7 @@ jobs:
       run: dotnet test --no-restore --verbosity normal
 
     - name: Publish
-      run: dotnet publish --configuration Release --output build .\src\BookmarksWebApp\Bookmarks.csproj
+      run: dotnet publish --configuration Release --output build src/BookmarksWebApp/Bookmarks.csproj
 
     - name: Deploy to Github Pages
       uses: JamesIves/github-pages-deploy-action@releases/v3
