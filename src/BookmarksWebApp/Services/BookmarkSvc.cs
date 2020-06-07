@@ -30,27 +30,42 @@ namespace Bookmarks.Services
             }
         }
 
+        /// <summary>
+        /// current raw filter string
+        /// </summary>
         public string Filter { get; set; }
 
+        /// <summary>
+        /// filtered list of bookmarks
+        /// </summary>
         public IEnumerable<Bookmark> FilteredBookmarks
         {
             get
             {
-                return Config.Bookmarks.Where(bm => _filterComponent.FilterOnSearchString(bm));
+                return _configuration.Bookmarks.Where(bm => _filterComponent.FilterOnSearchString(bm));
             }
         }
 
+        /// <summary>
+        /// applies current filterstring and updates filtered list of bookmarks.
+        /// </summary>
         public void ApplyFilter()
         {
             _filterComponent = BookmarkFilter.Create(this.Filter);
         }
 
+        /// <summary>
+        /// resets filter to show unfiltered list.
+        /// </summary>
         public void ResetFilter()
         {
             this.Filter = string.Empty;
             _filterComponent = _defaultEmptyFilterComponent;
         }
 
-        public Configuration Config => _configuration;
+        /// <summary>
+        /// returns false as long as data model is not initialized
+        /// </summary>
+        public bool InitializationPending => _configuration == null;
     }
 }
