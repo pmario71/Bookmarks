@@ -14,7 +14,7 @@
 else
 {
     <EditForm Model="@_svc" OnSubmit="HandleSubmit">
-        <ServerSideValidator />
+        <FilterStringValidator />
         <ValidationSummary />
 
         <InputText id="name" @bind-Value="_svc.Filter" @onkeydown="OnKeyUp" />

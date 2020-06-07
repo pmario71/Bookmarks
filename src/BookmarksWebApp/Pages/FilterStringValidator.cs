@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bookmarks.Pages
 {
-    public class ServerSideValidator : ComponentBase
+    public class FilterStringValidator : ComponentBase
     {
         private ValidationMessageStore _messageStore;
 
@@ -19,8 +19,8 @@ namespace Bookmarks.Pages
         {
             if (CurrentEditContext == null)
             {
-                throw new InvalidOperationException($"{nameof(ServerSideValidator)} requires a cascading " +
-                    $"parameter of type {nameof(EditContext)}. For example, you can use {nameof(ServerSideValidator)} " +
+                throw new InvalidOperationException($"{nameof(FilterStringValidator)} requires a cascading " +
+                    $"parameter of type {nameof(EditContext)}. For example, you can use {nameof(FilterStringValidator)} " +
                     $"inside an {nameof(EditForm)}.");
             }
 
