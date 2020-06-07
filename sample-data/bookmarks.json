@@ -1,0 +1,16 @@
+{
+  "bookmarks": [
+    {
+      "title": "Spiegel",
+      "id": 1,
+      "tags": [ "private", "tag1" ],
+      "link": "https://www.spiegel.de"
+    },
+    {
+      "title": "InfoQ",
+      "id": 2,
+      "tags": [ "private" ],
+      "link": "https://infoq.com"
+    }
+  ]
+}
