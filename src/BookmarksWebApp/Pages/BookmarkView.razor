@@ -1,7 +1,8 @@
 ﻿@page "/bookmarks"
 @inject Bookmarks.Services.BookmarkSvc _svc
-@using System.Text.Json.Serialization
+
 @using DataModel;
+@using DataModel.Filtering;
 @using MatBlazor;
 
 <h1>Bookmarks</h1>
@@ -12,13 +13,19 @@
 }
 else
 {
-    <MatList>
-        <input @bind-value="_filter" @bind-value:event="oninput" />
-        <MatButton @onclick="OnSearch"><span class="oi oi-question-mark">Search</span></MatButton>
-    </MatList>
+    <EditForm Model="@_svc" OnSubmit="HandleSubmit">
+        <ServerSideValidator />
+        <ValidationSummary />
+
+        <InputText id="name" @bind-Value="_svc.Filter" @onkeydown="OnKeyUp" />
+
+        <button type="submit"><span class="oi oi-question-mark">Search</span></button>
+    </EditForm>
+
+
     <div class="mat-layout-grid">
         <div class="mat-layout-grid-inner">
-            @foreach (var bookmark in FilteredBookmarks)
+            @foreach (var bookmark in _svc.FilteredBookmarks)
             {
                 <MatCard class="mat-layout-grid-cell">
                     <MatCardContent>
@@ -36,19 +43,17 @@ else
     </div>
 }
 @code {
-    private string _filter;
-
-    private IEnumerable<Bookmark> FilteredBookmarks {
-        get
-        {
-            var filter = Bookmarks.DataModel.Filtering.BookmarkFilter.Create(_filter);
-            return _svc.Config.Bookmarks.Where(bm => filter.FilterOnSearchString(bm));
-        }
+    private void HandleSubmit()
+    {
+        Console.WriteLine("HandleSubmit called ...");
     }
 
-    private void OnSearch()
+    private void OnKeyUp(KeyboardEventArgs e)
     {
-        this.StateHasChanged();
+        if (e.Key == "Escape")
+        {
+            _svc.ResetFilter();
+        }
     }
 
     protected override Task OnInitializedAsync()
